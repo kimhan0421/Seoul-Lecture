@@ -6,7 +6,7 @@
 	<body>
 		<h1>Post 리스트 페이지</h1>
 		<div><a href="{% url 'new' %}">글쓰기</a></div>
-		<table border="1">
+		<table>
 			<tr>
 				<th>번호</th>
 				<th>제목</th>
@@ -16,7 +16,7 @@
 			{% for post in post_all %}
 			<tr>
 				<td>{{ post.id }}</td>
-				<td><a href="">{{ post.title }}</a></td>
+				<td><a href="{% url 'detail' post.id %}">{{ post.title }}</a></td>
 				<td>{{ post.created_by }}</td>
 				<td>{{ post.created_at }}</td>
 			</tr>

@@ -7,22 +7,23 @@
 		<title>Document</title>
 	</head>
 	<body>
-		<h1>글쓰기</h1>
-		<form action="{% url 'create' %}" method="post">
+		<h1>{{ title }}</h1>
+		<form action="" method="POST">
 			{% csrf_token %}
 			<div>
 				<label for="">제목</label>
-				<input type="text" name="title" />
+				<input type="text" name="title" value="{{ post.title }}" />
 			</div>
 			<div>
 				<label for="">내용</label>
-				<textarea name="content"></textarea>
+				<textarea name="content">{{ post.content }}</textarea>
 			</div>
 			<div>
 				<label for="">작성자</label>
-				<input type="text" name="created_by" />
+				<input type="text" name="created_by" value="{{ post.created_by }}" />
 			</div>
-			<input type="submit" value="등록하기" />
+			<input type="submit" value="{{ submit_text }}" />
+			<a href="{{ request.META.HTTP_REFERER }}">뒤로가기</a>
 		</form>
 	</body>
 </html>
