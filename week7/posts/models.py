@@ -24,3 +24,5 @@ class Post(models.Model):
         verbose_name='공개 여부',
         default=True
     )
+
+    image = models.ImageField(upload_to='images/',default='')

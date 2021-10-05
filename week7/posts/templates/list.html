@@ -19,6 +19,7 @@
 				<td><a href="{% url 'detail' post.id %}">{{ post.title }}</a></td>
 				<td>{{ post.created_by }}</td>
 				<td>{{ post.created_at }}</td>
+				<td><img src="{{ post.image.url }}" alt=" Card image cap" /></td>
 			</tr>
 			{% endfor %}
 		</table>
