@@ -5,9 +5,7 @@
 	</head>
 	<body>
 		<h1>글 상세페이지</h1>
-		<div>{{ post.id }}. {{ post.title }}</div>
-		<div>{{ post.created_by }}, {{ post.created_at }}</div>
-		<div>{{ post.content }}</div>
+		{% include 'post_card.html' %}
 		<a href="{% url 'list' %}">목록보기</a>
 		<a href="{% url 'update' post.id %}">수정하기</a>
 	</body>

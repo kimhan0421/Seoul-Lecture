@@ -46,21 +46,23 @@ def delete(request, id):
         context.update(post=post)
         return render(request, 'confirm_delete.html', context)
 
+
 def update(request, id):
-    context = {'title':'글 수정', 'submit_text': '수정하기'}
+    context = {'title': '글 수정', 'submit_text': '수정하기'}
     post = Post.objects.get(id=id)
     if request.method == 'POST':
         title = request.POST['title']
         content = request.POST['content']
         created_by = request.POST['created_by']
-        
+
         post.title = title
         post.content = content
         post.created_by = created_by
         post.save()
         return redirect('detail', id)
     else:
+        print('dfdfd')
+        print(context)
         context.update(post=post)
+        print(context)
         return render(request, 'form.html', context)
-        
-        
