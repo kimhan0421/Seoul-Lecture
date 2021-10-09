@@ -1,4 +1,5 @@
 from datetime import datetime
+from django.contrib.auth.decorators import login_required
 
 from django.shortcuts import render, redirect
 
@@ -9,6 +10,7 @@ def new(request):
     return render(request, 'form.html')
 
 
+@login_required
 def create(request):
     if request.method == 'POST':
         now = datetime.now()
