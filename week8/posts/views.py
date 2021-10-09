@@ -61,8 +61,8 @@ def update(request, id):
         post.save()
         return redirect('detail', id)
     else:
-        print('dfdfd')
-        print(context)
+        # print('dfdfd')
+        # print(context)
         context.update(post=post)
-        print(context)
+        # print(context)
         return render(request, 'form.html', context)
