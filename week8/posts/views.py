@@ -10,17 +10,21 @@ def new(request):
 
 
 def create(request):
-    title = request.POST['title']
-    content = request.POST['content']
-    created_by = request.POST['created_by']
-    Post.objects.create(
-        title=title,
-        content=content,
-        created_by=created_by,
-        created_at=datetime.now(),
-    )
-    # return render(request, 'form.html')
-    return redirect('/')
+    if request.method == 'POST':
+        now = datetime.now()
+        title = request.POST['title']
+        content = request.POST['content']
+        created_by = request.POST['created_by']
+        post = Post.objects.create(
+            title=title,
+            content=content,
+            created_by=created_by,
+            created_at=now,
+        )
+        return redirect('/')
+    else:
+        context = {'title': '글 등록', 'submit_text': '등록하기'}
+        return render(request, 'posts/form.html', context)
 
 
 def list(request):

@@ -18,7 +18,8 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from posts.views import new, create, list,detail,update
+from posts.views import new, create, list, detail, update
+from account.views import signup
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,4 +29,6 @@ urlpatterns = [
     path('<int:id>/', detail, name='detail'),
     path('<int:id>/update/', update, name='update'),
     # path('<int:id>/delete/', delete, name='delete'),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('account/signup/', signup, name='signup'),
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
