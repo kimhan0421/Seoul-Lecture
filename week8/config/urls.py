@@ -1,9 +1,10 @@
 from django.contrib import admin
 from django.urls import path, include
-from django.conf import settings
-from django.conf.urls.static import static
+from django.conf import settings  # media
+from django.conf.urls.static import static  # media
 
 from posts.views import new, create, list, detail, update
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -15,5 +16,5 @@ urlpatterns = [
     # path('<int:id>/delete/', delete, name='delete'),
 
     path('account/', include('account.urls')),
-
+    path('photolog/', include('photolog.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

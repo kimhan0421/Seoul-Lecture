@@ -17,6 +17,7 @@
 			<ul>
 				<li><a href="{% url 'list' %}">홈</a></li>
 				<li><a href="{% url 'list' %}">게시글 목록</a></li>
+				<li><a href="{% url 'photolog:list' %}">이미지 목록</a></li>
 				{% if user.is_authenticated %}
 				<li><a href="{% url 'account:logout' %}">로그아웃</a></li>
 				{% else %}
