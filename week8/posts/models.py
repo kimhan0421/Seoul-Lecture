@@ -25,4 +25,7 @@ class Post(models.Model):
         default=True
     )
 
-    image = models.ImageField(upload_to='images/',default='')
+    image = models.ImageField(upload_to='images/', default='')
+
+    def __str__(self):
+        return '%s - %s - %s - %s - %s - %s' % (self.title, self.content, self.created_at, self.created_by, self.is_view, self.image)

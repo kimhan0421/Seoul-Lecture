@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import DogImage
+
+
+@admin.register(DogImage)
+class NameAdmin(admin.ModelAdmin):
+    list_display = ['id', 'url']
