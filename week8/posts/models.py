@@ -29,3 +29,8 @@ class Post(models.Model):
 
     def __str__(self):
         return '%s - %s - %s - %s - %s - %s' % (self.title, self.content, self.created_at, self.created_by, self.is_view, self.image)
+
+
+class Comment(models.Model):
+    comment_title = models.ForeignKey(to=Post, on_delete=models.CASCADE)
+    comment_content = models.CharField(max_length=100)

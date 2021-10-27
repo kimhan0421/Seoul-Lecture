@@ -16,7 +16,6 @@
 		<td><a href="{% url 'detail' post.id %}">{{ post.title }}</a></td>
 		<td>{{ post.created_by }}</td>
 		<td>{{ post.created_at }}</td>
-		<td><img src="{{ post.image.url }}" alt=" Card image cap" width="100" height="100" /></td>
 	</tr>
 	{% endfor %}
 </table>

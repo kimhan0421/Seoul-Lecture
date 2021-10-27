@@ -3,14 +3,13 @@ from django.contrib.auth.decorators import login_required
 
 from django.shortcuts import render, redirect
 
-from .models import Post
-
+from .models import Post,Comment
 
 def new(request):
     return render(request, 'form.html')
 
 
-@login_required
+# @login_required
 def create(request):
     if request.method == 'POST':
         now = datetime.now()
@@ -23,10 +22,14 @@ def create(request):
             created_by=created_by,
             created_at=now,
         )
+        Comment.objects.create(
+            comment_title=post,
+            comment_content=content
+        )
         return redirect('/')
     else:
         context = {'title': '글 등록', 'submit_text': '등록하기'}
-        return render(request, 'posts/form.html', context)
+        return render(request, 'form.html', context)
 
 
 def list(request):
